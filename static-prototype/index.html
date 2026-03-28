@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SUMI & ENJI | Traditional Craft, Modern Palate</title>
+  <meta name="description" content="SUMI & ENJI — Authentic Japanese cuisine rooted in Kyoto tradition. Reserve a table or order online."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* ── page‑specific: About Preview ── */
+    .about-preview { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .about-badge {
+      position: absolute; top: 50%; right: -20px; transform: translateY(-50%);
+      width: 56px; height: 56px; background: var(--primary);
+      display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .featured-dishes { position: relative; }
+    .featured-dishes .pattern { position: absolute; inset: 0; }
+    /* Testimonial */
+    .testimonial-icon { font-size: 3rem; color: var(--gold-dim); display: block; margin-bottom: var(--sp-8); }
+    /* CTA Zen Tray */
+    .zen-tray {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16);
+      align-items: center; background: var(--surface-container); padding: var(--sp-16) var(--sp-16); position: relative; overflow: hidden;
+    }
+    .zen-tray .pattern { position: absolute; inset: 0; }
+    .zen-tray__img { position: relative; }
+    .zen-tray__img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .zen-tray__img::after {
+      content: ''; position: absolute; inset: 12px; border: 1px solid rgba(212,175,55,.25); pointer-events: none;
+    }
+    @media(max-width:768px){
+      .about-preview, .zen-tray { grid-template-columns: 1fr; }
+      .about-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button title="Language" aria-label="Language"><span class="material-symbols-outlined">language</span></button>
+      <a href="order.html" style="position:relative" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <img class="hero__bg" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2070&auto=format&fit=crop" alt="Premium sushi platter"/>
+  <div class="hero__overlay"></div>
+  <div class="hero__content fade-up">
+    <h1 class="display-lg text-white mb-4">SUMI &amp; ENJI</h1>
+    <p class="headline-sm text-white mb-4" style="letter-spacing:0.35em; font-style:normal; opacity:.9;">墨とエンジ</p>
+    <div class="hero__divider"></div>
+    <p class="label-xl text-white mt-4 mb-12" style="opacity:.85;">Authentic Japanese Cuisine</p>
+    <div class="flex" style="gap:var(--sp-4); justify-content:center; flex-wrap:wrap;">
+      <a href="reservation.html" class="btn btn-primary">Reserve Table</a>
+      <a href="order.html" class="btn btn-ghost">Order Online</a>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<main>
+
+<!-- ── About Preview ── -->
+<section class="section">
+  <div class="container">
+    <div class="about-preview">
+      <div class="fade-up">
+        <div class="section-header mb-8">
+          <span class="section-eyebrow">Our Heritage</span>
+          <h2 class="headline-xl">Our Story <span class="jp-sub">私たちの物語</span></h2>
+          <div class="section-header__divider"></div>
+        </div>
+        <p class="body-lg text-muted mb-6">At Sumi &amp; Enji, we honour the delicate balance between the deep ink of tradition and the vibrant crimson of modern innovation. Our journey began in the narrow alleys of Kyoto, where the art of the perfect blade stroke is passed down through generations.</p>
+        <p class="body-md text-muted mb-8">Every ingredient is sourced with obsessive care — from the mineral-rich waters of the Sea of Japan to the small organic farms of our local producers.</p>
+        <a href="about.html" class="link-gold">Explore Our Philosophy</a>
+      </div>
+      <div class="about-img-wrap fade-up" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1583394838336-318e90641973?q=80&w=1974&auto=format&fit=crop" alt="Head Chef"/>
+        <div class="about-badge"><span class="material-symbols-outlined">restaurant_menu</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Featured Dishes ── -->
+<section class="section section--container featured-dishes">
+  <div class="pattern seigaiha-pattern"></div>
+  <div class="container" style="position:relative">
+    <div class="section-header section-header--center mb-16 fade-up">
+      <span class="section-eyebrow">Seasonal Selection</span>
+      <h2 class="headline-xl">The Signature Collection</h2>
+      <div class="section-header__divider" style="margin:var(--sp-4) auto 0"></div>
+    </div>
+    <div class="grid-3 bento-offset">
+      <!-- Dish 1 -->
+      <div class="card dish-card fade-up" data-delay="0">
+        <div class="dish-card__img-wrap">
+          <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=2080&auto=format&fit=crop" alt="Black Garlic Ramen"/>
+          <span class="dish-card__badge">Chef's Choice</span>
+        </div>
+        <div class="dish-card__body">
+          <div class="dish-card__meta">
+            <div>
+              <div class="dish-card__name">Black Garlic Ramen</div>
+              <div class="dish-card__name-jp">黒にんにくラーメン</div>
+            </div>
+            <span class="dish-card__price">$24</span>
+          </div>
+          <p class="dish-card__desc">48-hour bone marrow broth infused with toasted garlic oil and hand-pulled noodles.</p>
+          <div class="dish-card__actions mt-6">
+            <a href="order.html" class="btn btn-outline-red w-full" style="justify-content:center">Add to Order</a>
+          </div>
+        </div>
+      </div>
+      <!-- Dish 2 -->
+      <div class="card dish-card fade-up" data-delay="1">
+        <div class="dish-card__img-wrap">
+          <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=2025&auto=format&fit=crop" alt="Omakase Nigiri"/>
+        </div>
+        <div class="dish-card__body">
+          <div class="dish-card__meta">
+            <div>
+              <div class="dish-card__name">Omakase Nigiri</div>
+              <div class="dish-card__name-jp">おまかせ握り</div>
+            </div>
+            <span class="dish-card__price">$85</span>
+          </div>
+          <p class="dish-card__desc">Daily selection of the finest market-fresh seafood hand-selected by our Master Sushi Chef.</p>
+          <div class="dish-card__actions mt-6">
+            <a href="order.html" class="btn btn-outline-red w-full" style="justify-content:center">Add to Order</a>
+          </div>
+        </div>
+      </div>
+      <!-- Dish 3 -->
+      <div class="card dish-card fade-up" data-delay="2">
+        <div class="dish-card__img-wrap">
+          <img src="https://images.unsplash.com/photo-1581184953963-d15972933db1?q=80&w=2069&auto=format&fit=crop" alt="Botan Tempura"/>
+        </div>
+        <div class="dish-card__body">
+          <div class="dish-card__meta">
+            <div>
+              <div class="dish-card__name">Botan Tempura</div>
+              <div class="dish-card__name-jp">天ぷら盛り合わせ</div>
+            </div>
+            <span class="dish-card__price">$32</span>
+          </div>
+          <p class="dish-card__desc">Lace-thin batter using ice-chilled spring water for an unparalleled airy crispness.</p>
+          <div class="dish-card__actions mt-6">
+            <a href="order.html" class="btn btn-outline-red w-full" style="justify-content:center">Add to Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="menu.html" class="btn btn-outline">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonial ── -->
+<section class="section section--dark" style="text-align:center; overflow:hidden; position:relative;">
+  <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); font-family:var(--font-headline); font-size:20rem; color:rgba(255,255,255,0.03); line-height:1; pointer-events:none; user-select:none;">和</div>
+  <div class="container" style="position:relative">
+    <span class="material-symbols-outlined testimonial-icon fade-up" style="font-variation-settings:'FILL' 1;">format_quote</span>
+    <blockquote class="testimonial-quote fade-up">
+      "An experience that transcends mere dining. The precision of the omakase was akin to a symphony, where every note was a perfectly balanced piece of fish."
+    </blockquote>
+    <div class="testimonial-attr fade-up">
+      <div style="width:2rem; height:1px; background:var(--secondary); margin:var(--sp-6) auto;"></div>
+      <div class="testimonial-attr__name">Julian V. Alexander</div>
+      <div class="testimonial-attr__role">Culinary Critic, The Modern Palate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Zen Tray CTA ── -->
+<section class="section">
+  <div class="container">
+    <div class="zen-tray">
+      <div class="pattern dot-pattern"></div>
+      <div style="position:relative">
+        <span class="section-eyebrow">Experience Ma</span>
+        <h2 class="headline-xl mb-6">Reserve Your Evening</h2>
+        <p class="body-md text-muted mb-10">Join us for an evening of quiet contemplation and exquisite flavours. Reservations are recommended two weeks in advance.</p>
+        <a href="reservation.html" class="btn btn-dark">Secure Your Seat</a>
+      </div>
+      <div class="zen-tray__img">
+        <img src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?q=80&w=2070&auto=format&fit=crop" alt="Restaurant interior"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">SUMI &amp; ENJI</div>
+        <p class="footer-desc">Elevating the essence of Japanese culinary tradition through modern interpretation and seasonal mastery.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#philosophy">Our Philosophy</a></li>
+          <li><a href="menu.html">Full Menu</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Service</div>
+        <ul class="footer-links">
+          <li><a href="order.html">Online Ordering</a></li>
+          <li><a href="reservation.html">Private Dining</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Social</div>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2024 SUMI &amp; ENJI. Traditional Craft, Modern Palate.</span>
+      <div class="footer-copy-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

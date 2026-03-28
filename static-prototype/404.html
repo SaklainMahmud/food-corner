@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 — Page Not Found | SUMI & ENJI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--stone-900);
+    }
+    .error-bg {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-headline);
+      font-size: 35vw;
+      font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+    .error-content { position: relative; z-index: 1; padding: var(--sp-8); }
+  </style>
+</head>
+<body>
+<div class="error-page">
+  <div class="error-bg">迷</div>
+  <div class="error-content">
+    <div class="section-eyebrow" style="color:var(--gold-dim);">404 — Lost in the Void</div>
+    <h1 class="display-lg text-white mt-4 mb-4">Page Not Found</h1>
+    <p class="headline-sm text-white mb-8" style="opacity:.6; letter-spacing:.2em;">このページは存在しません</p>
+    <div style="width:3rem; height:1px; background:var(--gold-dim); margin:var(--sp-6) auto;"></div>
+    <p class="body-md" style="color:rgba(255,255,255,0.5); max-width:400px; margin:0 auto var(--sp-10);">
+      Like a lost traveller in Kyoto's narrow lanes, the page you seek cannot be found. Let us guide you home.
+    </p>
+    <div class="flex" style="gap:var(--sp-4); justify-content:center; flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-primary">Return Home</a>
+      <a href="menu.html" class="btn btn-ghost">View Our Menu</a>
+    </div>
+  </div>
+</div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

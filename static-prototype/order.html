@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Online | SUMI & ENJI</title>
+  <meta name="description" content="Order delivery or pickup from SUMI & ENJI. Browse our full menu and track your order."/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .fulfillment-toggle {
+      display: inline-flex; background: var(--surface-container-low);
+      padding: 4px; gap: 4px; margin-bottom: var(--sp-3);
+    }
+    .fulfillment-btn {
+      padding: var(--sp-3) var(--sp-8);
+      font-family: var(--font-label); font-size: 0.75rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all .3s;
+      color: var(--on-surface-variant); background: transparent;
+    }
+    .fulfillment-btn.active {
+      background: var(--primary); color: #fff;
+      box-shadow: 0 4px 12px rgba(158,0,39,.2);
+    }
+    .order-layout {
+      display: flex; gap: var(--sp-12); align-items: flex-start;
+    }
+    .order-grid-wrap { flex: 1; min-width: 0; }
+    .delete-btn { background: none; border: none; cursor: pointer; color: var(--on-surface-variant); transition: color .2s; }
+    .delete-btn:hover { color: var(--error); }
+    @media(max-width:900px){ .order-layout { flex-direction: column; } .cart-sidebar { width: 100%; max-height: none; position: static; } }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="order.html" class="active">Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="Language"><span class="material-symbols-outlined">language</span></button>
+      <a href="order.html" style="position:relative" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="page-main section">
+  <div class="container">
+    <!-- Fulfillment Toggle -->
+    <div class="text-center mb-16">
+      <div class="fulfillment-toggle">
+        <button class="fulfillment-btn active" data-info="Delivering from Ginza Central Kitchen (30–45 min)">Delivery</button>
+        <button class="fulfillment-btn" data-info="Ready for pickup at Ginza Central Kitchen (15–20 min)">Pickup</button>
+      </div>
+      <p class="label-sm text-muted" id="fulfillment-info">Delivering from Ginza Central Kitchen (30–45 min)</p>
+    </div>
+
+    <div class="order-layout">
+      <!-- Menu Grid -->
+      <section class="order-grid-wrap">
+        <div class="section-header mb-8">
+          <span class="section-eyebrow">Today's Selection</span>
+          <h2 class="headline-lg">Signature Selections</h2>
+          <div class="section-header__divider"></div>
+        </div>
+        <div class="grid-3" style="gap:var(--sp-6);">
+          <!-- Items -->
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Hokkaido Omakase"/>
+              <span class="dish-card__badge">Popular</span>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">Hokkaido Omakase</div><div class="dish-card__name-jp">北海道おまかせ</div></div><span class="dish-card__price">¥4,200</span></div>
+              <p class="dish-card__desc">Premium 12-piece chef's selection featuring seasonal catch from Northern waters.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="omakase" data-name="Hokkaido Omakase" data-price="4200">+ Add</button>
+            </div>
+          </div>
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=600&auto=format&fit=crop" alt="Sumi Tonkotsu"/>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">Sumi Tonkotsu</div><div class="dish-card__name-jp">墨とんこつ</div></div><span class="dish-card__price">¥1,950</span></div>
+              <p class="dish-card__desc">18-hour broth infused with black garlic oil, served with signature thin noodles.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="tonkotsu" data-name="Sumi Tonkotsu" data-price="1950">+ Add</button>
+            </div>
+          </div>
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1581184953963-d15972933db1?q=80&w=600&auto=format&fit=crop" alt="Dragon Roll"/>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">Enji Dragon Roll</div><div class="dish-card__name-jp">エンジドラゴンロール</div></div><span class="dish-card__price">¥2,800</span></div>
+              <p class="dish-card__desc">Crispy tempura prawn, avocado, topped with flame-seared unagi and gold leaf.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="dragon" data-name="Enji Dragon Roll" data-price="2800">+ Add</button>
+            </div>
+          </div>
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop" alt="Wagyu Tataki"/>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">A5 Wagyu Tataki</div><div class="dish-card__name-jp">A5和牛たたき</div></div><span class="dish-card__price">¥6,500</span></div>
+              <p class="dish-card__desc">Lightly seared A5 Miyazaki Wagyu with ponzu and crispy garlic chips.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="wagyu_o" data-name="A5 Wagyu Tataki" data-price="6500">+ Add</button>
+            </div>
+          </div>
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=600&auto=format&fit=crop" alt="Gyoza"/>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">Wild Mushroom Gyoza</div><div class="dish-card__name-jp">野生きのこ餃子</div></div><span class="dish-card__price">¥1,400</span></div>
+              <p class="dish-card__desc">Hand-pleated dumplings with truffle-infused forest mushrooms and chives.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="gyoza" data-name="Wild Mushroom Gyoza" data-price="1400">+ Add</button>
+            </div>
+          </div>
+          <div class="card dish-card fade-up">
+            <div class="dish-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?q=80&w=600&auto=format&fit=crop" alt="Edamame"/>
+            </div>
+            <div class="dish-card__body">
+              <div class="dish-card__meta"><div><div class="dish-card__name">Spicy Edamame</div><div class="dish-card__name-jp">スパイシー枝豆</div></div><span class="dish-card__price">¥850</span></div>
+              <p class="dish-card__desc">Steamed young soy beans tossed in a house-made chili garlic crunch.</p>
+              <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                data-add-to-cart data-id="edamame" data-name="Spicy Edamame" data-price="850">+ Add</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cart Sidebar -->
+      <div class="cart-sidebar">
+        <div class="cart-sidebar__header">
+          <span class="headline-sm">Your Order</span>
+          <span class="material-symbols-outlined" style="color:var(--gold-dim)">shopping_basket</span>
+        </div>
+        <div class="cart-sidebar__items" id="cart-items-list">
+          <p class="text-muted body-sm" id="cart-empty-msg" style="text-align:center; padding:var(--sp-8) 0;">Your cart is empty.</p>
+        </div>
+        <div class="cart-sidebar__totals">
+          <div class="totals-row"><span class="text-muted">Subtotal</span><span id="cart-subtotal">¥0</span></div>
+          <div class="totals-row"><span class="text-muted">Delivery</span><span class="text-secondary" style="color:var(--secondary); font-weight:700;">FREE</span></div>
+          <div class="totals-row"><span class="text-muted">Tax (10%)</span><span id="cart-tax">¥0</span></div>
+          <div class="totals-row totals-row--total"><span>Total</span><span class="price" id="cart-total">¥0</span></div>
+          <a href="#" id="checkout-btn" class="btn btn-primary w-full mt-6" style="justify-content:center; opacity:.5; pointer-events:none;">
+            Checkout <span class="material-symbols-outlined" style="font-size:.9rem">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand">SUMI &amp; ENJI</div><p class="footer-desc">Experience the artistry of traditional Japanese cuisine delivered with modern precision.</p></div>
+      <div><div class="footer-heading">Explore</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="menu.html">Full Menu</a></li></ul></div>
+      <div><div class="footer-heading">Service</div><ul class="footer-links"><li><a href="order.html">Online Ordering</a></li><li><a href="#">Gift Cards</a></li></ul></div>
+      <div><div class="footer-heading">Connect</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Newsletter</a></li></ul></div>
+    </div>
+    <div class="footer-copy"><span>© 2024 SUMI &amp; ENJI.</span><div class="footer-copy-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  function fmt(n) { return '¥' + n.toLocaleString(); }
+  function renderCart() {
+    const list = document.getElementById('cart-items-list');
+    const empty = document.getElementById('cart-empty-msg');
+    const btn = document.getElementById('checkout-btn');
+    list.querySelectorAll('.cart-item').forEach(e => e.remove());
+    if (!cart.items.length) {
+      empty.style.display = '';
+      btn.style.opacity = '.5'; btn.style.pointerEvents = 'none';
+    } else {
+      empty.style.display = 'none';
+      btn.style.opacity = '1'; btn.style.pointerEvents = '';
+      cart.items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div class="cart-item__info">
+            <div class="flex-between"><span class="cart-item__name">${item.name}</span><span class="cart-item__price">${fmt(item.price * item.qty)}</span></div>
+            <div class="flex" style="gap:var(--sp-4); align-items:center; margin-top:var(--sp-2);">
+              <div class="qty-control">
+                <button data-cid="${item.id}" data-d="-1">−</button>
+                <span>${item.qty}</span>
+                <button data-cid="${item.id}" data-d="1">+</button>
+              </div>
+              <button class="delete-btn" data-del="${item.id}"><span class="material-symbols-outlined" style="font-size:1rem">delete</span></button>
+            </div>
+          </div>`;
+        list.appendChild(div);
+      });
+    }
+    const sub = cart.total();
+    const tax = Math.round(sub * 0.1);
+    document.getElementById('cart-subtotal').textContent = fmt(sub);
+    document.getElementById('cart-tax').textContent = fmt(tax);
+    document.getElementById('cart-total').textContent = fmt(sub + tax);
+  }
+
+  document.getElementById('cart-items-list').addEventListener('click', e => {
+    const btn = e.target.closest('[data-d]');
+    const del = e.target.closest('[data-del]');
+    if (btn) { cart.changeQty(btn.dataset.cid, parseInt(btn.dataset.d)); renderCart(); }
+    if (del) { cart.remove(del.dataset.del); renderCart(); }
+  });
+
+  // Override add-to-cart to also re-render
+  const origAdd = cart.add.bind(cart);
+  cart.add = function(...a) { origAdd(...a); renderCart(); };
+  renderCart();
+</script>
+</body>
+</html>

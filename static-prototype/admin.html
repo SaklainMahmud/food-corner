@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Portal | SUMI & ENJI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    body { background:var(--surface-container-low); }
+    .adm-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-10); }
+    .insight-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-6); }
+    .insight-card { position:relative; overflow:hidden; border-radius:0; }
+    .insight-card img { width:100%; height:200px; object-fit:cover; }
+    .insight-card .overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(28,25,23,.85) 40%, transparent); display:flex; flex-direction:column; justify-content:flex-end; padding:var(--sp-6); }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI <span class="label-sm text-muted" style="font-style:normal; font-size:.55rem;">Admin</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">← View Site</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="avatar-initials">HT</div>
+      <button><span class="material-symbols-outlined">notifications</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div style="padding:var(--sp-4) var(--sp-4) var(--sp-6); border-bottom:1px solid var(--outline-variant); margin-bottom:var(--sp-4);">
+      <div style="font-family:var(--font-display); font-style:italic; font-size:1rem;">SUMI &amp; ENJI</div>
+      <div class="label-sm text-muted" style="margin-top:4px;">Management Portal</div>
+    </div>
+    <a href="#" class="admin-nav-item active"><span class="material-symbols-outlined">dashboard</span>Overview</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">receipt_long</span>Orders</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">event_seat</span>Reservations</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">restaurant_menu</span>Menu Mgmt</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">group</span>Customers</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">analytics</span>Analytics</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">settings</span>Settings</a>
+    <a href="#" class="admin-nav-item"><span class="material-symbols-outlined">manage_accounts</span>Staff</a>
+    <div style="margin-top:auto; padding:var(--sp-4);">
+      <a href="reservation.html" class="btn btn-primary w-full" style="justify-content:center; font-size:.65rem; padding:.75rem 1rem;">+ New Reservation</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="adm-top">
+      <div>
+        <h1 class="headline-md">Today's Overview</h1>
+        <p class="label-sm text-muted mt-1">Friday, March 27, 2026</p>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div style="display:flex; align-items:center; gap:var(--sp-3); background:var(--surface-container-lowest); padding:var(--sp-3) var(--sp-4);">
+          <span class="material-symbols-outlined" style="font-size:1rem; color:var(--outline);">search</span>
+          <input type="text" placeholder="Search orders, reservations…" style="border:none; background:none; outline:none; font-size:.85rem; color:var(--on-surface); width:180px;"/>
+        </div>
+        <div class="avatar-initials" style="width:38px; height:38px; font-size:.7rem;">HT</div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="grid-4 mb-10">
+      <div class="metric-card fade-up"><div class="metric-eyebrow">Total Revenue</div><div class="metric-value">¥1.28M</div><div class="metric-trend metric-trend--up">↑ 12.4% vs last week</div></div>
+      <div class="metric-card fade-up" data-delay="1"><div class="metric-eyebrow">Total Orders</div><div class="metric-value">42</div><div class="metric-trend metric-trend--neutral">18 takeaway / 24 dine-in</div></div>
+      <div class="metric-card fade-up" data-delay="2"><div class="metric-eyebrow">Reservations</div><div class="metric-value">15</div><div class="metric-trend metric-trend--up">8 in next 2 hours</div></div>
+      <div class="metric-card fade-up" data-delay="3"><div class="metric-eyebrow">Pending</div><div class="metric-value" style="color:var(--error);">6</div><div class="metric-trend metric-trend--down">3 priority rush</div></div>
+    </div>
+
+    <!-- Orders Table -->
+    <div style="background:var(--surface-container-lowest); padding:var(--sp-8); margin-bottom:var(--sp-8);" class="fade-up">
+      <div class="flex-between mb-6">
+        <h2 class="headline-sm">Recent Orders</h2>
+        <div class="flex gap-4">
+          <span class="chip chip--green">Active: 12</span>
+          <a href="#" class="link-gold">View All Orders</a>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead>
+            <tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Status</th><th>Amount</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#SE-9041</strong></td>
+              <td><div class="flex gap-3 items-start"><div class="avatar-initials">AK</div><div><div style="font-weight:600; font-size:.85rem;">Aiko Kimura</div><div style="font-size:.75rem; color:var(--on-surface-variant);">Delivery</div></div></div></td>
+              <td class="text-muted" style="font-size:.85rem;">Omakase × 2, Ramen × 1</td>
+              <td><span class="chip chip--green">Delivered</span></td>
+              <td><strong>¥9,350</strong></td>
+              <td><a href="#" class="link-gold">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#SE-9040</strong></td>
+              <td><div class="flex gap-3 items-start"><div class="avatar-initials">RN</div><div><div style="font-weight:600; font-size:.85rem;">Ren Nakamura</div><div style="font-size:.75rem; color:var(--on-surface-variant);">Dine-in T4</div></div></div></td>
+              <td class="text-muted" style="font-size:.85rem;">A5 Wagyu, Dragon Roll</td>
+              <td><span class="chip chip--amber">Preparing</span></td>
+              <td><strong>¥9,300</strong></td>
+              <td><a href="#" class="link-gold">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#SE-9039</strong></td>
+              <td><div class="flex gap-3 items-start"><div class="avatar-initials">HY</div><div><div style="font-weight:600; font-size:.85rem;">Haruto Yamada</div><div style="font-size:.75rem; color:var(--on-surface-variant);">Pickup</div></div></div></td>
+              <td class="text-muted" style="font-size:.85rem;">Gyoza × 3, Edamame × 2</td>
+              <td><span class="chip chip--blue">In Transit</span></td>
+              <td><strong>¥5,900</strong></td>
+              <td><a href="#" class="link-gold">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#SE-9038</strong></td>
+              <td><div class="flex gap-3 items-start"><div class="avatar-initials">SM</div><div><div style="font-weight:600; font-size:.85rem;">Sakura Morita</div><div style="font-size:.75rem; color:var(--on-surface-variant);">Delivery</div></div></div></td>
+              <td class="text-muted" style="font-size:.85rem;">Tonkotsu Ramen × 2</td>
+              <td><span class="chip chip--red">Pending</span></td>
+              <td><strong>¥3,900</strong></td>
+              <td><a href="#" class="link-gold">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination" style="justify-content:flex-end; margin-top:var(--sp-6);">
+        <a href="#">‹</a><span class="active">1</span><a href="#">2</a><a href="#">3</a><a href="#">›</a>
+      </div>
+    </div>
+
+    <!-- Insight Cards -->
+    <div class="insight-grid fade-up">
+      <div class="insight-card card">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop" alt="Kitchen"/>
+        <div class="overlay">
+          <div class="label-sm text-white mb-2" style="opacity:.7;">Kitchen Efficiency</div>
+          <div class="headline-sm text-white" style="font-size:1rem;">Avg. Prep Time</div>
+          <div style="font-family:var(--font-headline); font-size:2rem; font-weight:900; color:var(--gold-dim);">18 min</div>
+          <div class="label-sm" style="color:rgba(255,255,255,.5); margin-top:4px;">↑ 2 min faster than target</div>
+        </div>
+      </div>
+      <div class="insight-card card">
+        <img src="https://images.unsplash.com/photo-1583394838336-318e90641973?q=80&w=800&auto=format&fit=crop" alt="Satisfaction"/>
+        <div class="overlay">
+          <div class="label-sm text-white mb-2" style="opacity:.7;">Customer Satisfaction</div>
+          <div style="font-family:var(--font-headline); font-size:2.5rem; font-weight:900; color:var(--gold-dim);">4.9 / 5</div>
+          <div style="font-family:var(--font-label); font-size:.65rem; letter-spacing:.2em; color:var(--gold-dim);">★★★★★</div>
+          <p style="font-size:.8rem; color:rgba(255,255,255,.7); margin-top:var(--sp-3); font-style:italic;">"An experience that transcends mere dining."</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

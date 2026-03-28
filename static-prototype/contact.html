@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | SUMI & ENJI</title>
+  <meta name="description" content="Get in touch with SUMI & ENJI — find our address, hours, and contact form."/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 380px; gap: var(--sp-16); align-items: start; }
+    .info-item { display: flex; gap: var(--sp-4); align-items: flex-start; padding: var(--sp-4) 0; }
+    .info-item .material-symbols-outlined { color: var(--primary); font-size: 1.25rem; margin-top: 2px; }
+    .info-label { font-family: var(--font-label); font-size: 0.65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--on-surface-variant); }
+    .info-value { font-size: 0.9rem; margin-top: 2px; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table td { padding: var(--sp-2) 0; font-size: 0.85rem; }
+    .hours-table td:last-child { text-align: right; color: var(--on-surface-variant); }
+    .map-embed { width: 100%; height: 220px; background: var(--surface-container-high); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .map-embed img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) brightness(.85); }
+    .map-pin { position: absolute; display: flex; flex-direction: column; align-items: center; }
+    .map-pin .material-symbols-outlined { font-size: 2rem; color: var(--primary); }
+    .social-links { display: flex; gap: var(--sp-4); margin-top: var(--sp-4); }
+    .social-link { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-2) var(--sp-4); background: var(--surface-container); font-family: var(--font-label); font-size: 0.65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--on-surface-variant); transition: background .2s, color .2s; }
+    .social-link:hover { background: var(--primary); color: #fff; }
+    @media(max-width:900px){ .contact-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="Language"><span class="material-symbols-outlined">language</span></button>
+      <a href="order.html" style="position:relative" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero page-main">
+  <img class="page-hero__bg" src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?q=80&w=2070&auto=format&fit=crop" alt="Restaurant"/>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <h1 class="page-hero__title">Contact Us <span class="jp-sub" style="font-size:.55em">お問い合わせ</span></h1>
+  </div>
+</div>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Contact Form + FAQ -->
+        <div>
+          <div class="section-header mb-10 fade-up">
+            <span class="section-eyebrow">Get in Touch</span>
+            <h2 class="headline-xl">Send a Message</h2>
+            <div class="section-header__divider"></div>
+          </div>
+
+          <form id="contact-form" class="fade-up" style="display:flex; flex-direction:column; gap:var(--sp-6);">
+            <div class="grid-2" style="gap:var(--sp-6);">
+              <div class="form-group">
+                <label class="form-label" for="ct-name">Full Name</label>
+                <input class="form-input" type="text" id="ct-name" name="name" placeholder="Your name" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ct-email">Email Address</label>
+                <input class="form-input" type="email" id="ct-email" name="email" placeholder="email@example.com" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-phone">Phone (Optional)</label>
+              <input class="form-input" type="tel" id="ct-phone" name="phone" placeholder="+1 (555) 000-0000"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-subject">Subject</label>
+              <select class="form-input form-select" id="ct-subject" name="subject">
+                <option>General Enquiry</option>
+                <option>Reservation</option>
+                <option>Private Dining</option>
+                <option>Catering</option>
+                <option>Press &amp; Media</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-message">Message</label>
+              <textarea class="form-input form-textarea" id="ct-message" name="message" placeholder="How can we help?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
+              Send Message
+              <span class="material-symbols-outlined" style="font-size:.9rem;">send</span>
+            </button>
+            <p class="body-sm text-muted" id="contact-success" style="display:none; color:#16a34a;">✓ Message sent! We'll reply within 24 hours.</p>
+          </form>
+
+          <div class="mt-16 fade-up">
+            <h3 class="headline-sm mb-6">Frequently Asked Questions</h3>
+            <div class="accordion-item">
+              <button class="accordion-btn">Do you have parking? <span class="icon material-symbols-outlined">add</span></button>
+              <div class="accordion-content"><p>Yes, complimentary valet parking is available from 5:30 PM on Friday and Saturday. On other evenings, metered street parking is available nearby.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">What is your cancellation policy? <span class="icon material-symbols-outlined">add</span></button>
+              <div class="accordion-content"><p>Reservations may be cancelled up to 24 hours in advance without penalty. For groups of 6+, 48 hours notice is required. Same-day cancellations may incur a fee.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Do you accommodate dietary restrictions? <span class="icon material-symbols-outlined">add</span></button>
+              <div class="accordion-content"><p>Absolutely. Please inform us of any dietary requirements at the time of booking. We cater for vegetarian, vegan, gluten-free, and all major allergens. Our chefs will craft a bespoke menu for you.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Can I host a private event? <span class="icon material-symbols-outlined">add</span></button>
+              <div class="accordion-content"><p>Yes — our Private Tea Room seats up to 14 guests and is ideal for intimate celebrations, business dinners, and special occasions. Contact us to enquire about availability and bespoke menus.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Is there a dress code? <span class="icon material-symbols-outlined">add</span></button>
+              <div class="accordion-content"><p>We request smart casual attire — we want you to feel at ease while honouring the spirit of the occasion. Sportswear and flip-flops are kindly discouraged.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Info -->
+        <div class="fade-up" data-delay="1">
+          <div class="card p-8 mb-6">
+            <h3 class="headline-sm mb-6">Restaurant Info</h3>
+            <div class="info-item">
+              <span class="material-symbols-outlined">location_on</span>
+              <div><div class="info-label">Address</div><div class="info-value">123 Ginza District<br/>Tokyo, Japan 104-0061</div></div>
+            </div>
+            <div class="info-item">
+              <span class="material-symbols-outlined">call</span>
+              <div><div class="info-label">Phone</div><div class="info-value"><a href="tel:+81312345678" style="color:var(--primary)">+81 3-1234-5678</a></div></div>
+            </div>
+            <div class="info-item">
+              <span class="material-symbols-outlined">mail</span>
+              <div><div class="info-label">Email</div><div class="info-value"><a href="mailto:hello@sumienji.jp" style="color:var(--primary)">hello@sumienji.jp</a></div></div>
+            </div>
+            <div style="margin-top:var(--sp-6); padding-top:var(--sp-6); border-top:1px solid var(--outline-variant);">
+              <div class="info-label mb-4">Hours of Operation</div>
+              <table class="hours-table">
+                <tr><td>Mon – Thu</td><td>12:00 – 22:00</td></tr>
+                <tr><td>Fri – Sat</td><td>12:00 – 23:00</td></tr>
+                <tr><td>Sunday</td><td>12:00 – 21:00</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="map-embed mb-6">
+            <img src="https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=800&auto=format&fit=crop" alt="Map"/>
+            <div class="map-pin">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">location_on</span>
+              <span style="background:var(--stone-900); color:#fff; font-family:var(--font-label); font-size:.6rem; letter-spacing:.12em; padding:3px 8px;">SUMI &amp; ENJI</span>
+            </div>
+          </div>
+
+          <div class="card p-8">
+            <div class="info-label mb-4">Follow Us</div>
+            <div class="social-links" style="flex-wrap:wrap;">
+              <a href="#" class="social-link"><span class="material-symbols-outlined" style="font-size:1rem;">photo_camera</span> Instagram</a>
+              <a href="#" class="social-link"><span class="material-symbols-outlined" style="font-size:1rem;">chat</span> Twitter</a>
+              <a href="#" class="social-link"><span class="material-symbols-outlined" style="font-size:1rem;">thumb_up</span> Facebook</a>
+            </div>
+            <a href="reservation.html" class="btn btn-primary w-full mt-6" style="justify-content:center;">Reserve a Table</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand">SUMI &amp; ENJI</div><p class="footer-desc">Elevating the essence of Japanese culinary tradition through modern interpretation.</p></div>
+      <div><div class="footer-heading">Explore</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="menu.html">Full Menu</a></li></ul></div>
+      <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="tel:+81312345678">+81 3-1234-5678</a></li><li><a href="mailto:hello@sumienji.jp">hello@sumienji.jp</a></li></ul></div>
+      <div><div class="footer-heading">Social</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li></ul></div>
+    </div>
+    <div class="footer-copy"><span>© 2024 SUMI &amp; ENJI. Traditional Craft, Modern Palate.</span><div class="footer-copy-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  document.getElementById('contact-form')?.addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('contact-success').style.display = '';
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

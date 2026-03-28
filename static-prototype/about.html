@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | SUMI & ENJI</title>
+  <meta name="description" content="The story behind SUMI & ENJI — Kyoto tradition, Michelin recognition, meet the team."/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--sp-8); }
+    .philosophy-card {
+      background: var(--surface-container-low); padding: var(--sp-10);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .philosophy-card__kanji {
+      font-family: var(--font-headline); font-size: 5rem; font-weight: 900;
+      color: var(--surface-container-highest); position: absolute;
+      bottom: -1rem; right: var(--sp-4); line-height: 1; pointer-events: none;
+    }
+    .philosophy-card__icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: var(--sp-4); }
+    .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--sp-8); }
+    .team-card { text-align: center; }
+    .team-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: var(--sp-4); }
+    .awards-row { display: flex; gap: var(--sp-6); flex-wrap: wrap; align-items: center; }
+    .award-badge {
+      background: var(--surface-container-low); padding: var(--sp-4) var(--sp-6);
+      display: flex; align-items: center; gap: var(--sp-3);
+    }
+    .award-badge .material-symbols-outlined { color: var(--secondary); }
+    @media(max-width:768px){ .philosophy-grid, .team-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="Language"><span class="material-symbols-outlined">language</span></button>
+      <a href="order.html" style="position:relative" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero page-main">
+  <img class="page-hero__bg" src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?q=80&w=2070&auto=format&fit=crop" alt="Restaurant interior"/>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <h1 class="page-hero__title">Our Story <span class="jp-sub" style="font-size:.55em">私たちの物語</span></h1>
+  </div>
+</div>
+
+<main>
+
+<!-- ── Our Story ── -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:center; gap:var(--sp-16);">
+      <div class="fade-up">
+        <span class="section-eyebrow">Heritage</span>
+        <h2 class="headline-xl mb-6">The Origin of Sumi &amp; Enji</h2>
+        <p class="body-lg text-muted mb-6">At Sumi &amp; Enji, we honour the balance between the deep ink of tradition and the vibrant crimson of modern innovation. Our journey began in the narrow alleys of Kyoto, where the art of the perfect blade stroke is passed down through generations.</p>
+        <p class="body-md text-muted mb-6">Every ingredient is sourced with obsessive care — from the mineral-rich waters of the Sea of Japan to the small organic farms of our local producers. We believe true luxury lies in simplicity and the honest expression of the season's finest offerings.</p>
+        <a href="#philosophy" class="link-gold">Our Philosophy</a>
+      </div>
+      <div class="fade-up" data-delay="1" style="position:relative;">
+        <img src="https://images.unsplash.com/photo-1583394838336-318e90641973?q=80&w=1974&auto=format&fit=crop" alt="Head Chef" style="width:100%; aspect-ratio:4/5; object-fit:cover;"/>
+        <div style="position:absolute;inset:12px;border:1px solid rgba(212,175,55,.2);pointer-events:none;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Philosophy ── -->
+<section class="section section--container" id="philosophy">
+  <div class="container">
+    <div class="section-header section-header--center mb-16 fade-up">
+      <span class="section-eyebrow">Japanese Aesthetics</span>
+      <h2 class="headline-xl">The Principles We Live By</h2>
+      <div class="section-header__divider" style="margin:var(--sp-4) auto 0;"></div>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-card fade-up">
+        <span class="philosophy-card__kanji">和</span>
+        <div class="philosophy-card__icon">☯</div>
+        <h3 class="headline-sm mb-3">Wa — Harmony</h3>
+        <p class="body-sm text-muted">Every element of the dining experience — flavour, texture, timing, space — is orchestrated to create perfect balance.</p>
+      </div>
+      <div class="philosophy-card fade-up" data-delay="1">
+        <span class="philosophy-card__kanji">簡</span>
+        <div class="philosophy-card__icon">✦</div>
+        <h3 class="headline-sm mb-3">Kanso — Simplicity</h3>
+        <p class="body-sm text-muted">We eliminate the unnecessary. Each dish contains only what is essential — ingredients that speak for themselves.</p>
+      </div>
+      <div class="philosophy-card fade-up" data-delay="2">
+        <span class="philosophy-card__kanji">静</span>
+        <div class="philosophy-card__icon">◎</div>
+        <h3 class="headline-sm mb-3">Seijaku — Tranquillity</h3>
+        <p class="body-sm text-muted">The calm that exists at the heart of our kitchen extends to every table — a sanctuary from the pace of modern life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Timeline ── -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="gap:var(--sp-16); align-items:start;">
+      <div class="fade-up">
+        <span class="section-eyebrow">Our Journey</span>
+        <h2 class="headline-xl mb-12">Milestones</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2010</div>
+            <div class="timeline-title">Founded in Kyoto</div>
+            <div class="timeline-desc">Head Chef Hiroshi Tanaka opens Sumi in the Gion district with just 12 seats and an omakase-only menu.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013</div>
+            <div class="timeline-title">First Michelin Star</div>
+            <div class="timeline-desc">Recognised by the Michelin Guide Japan, cementing our reputation as one of Kyoto's finest dining experiences.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017</div>
+            <div class="timeline-title">Second Star &amp; Expansion</div>
+            <div class="timeline-desc">A second Michelin star awarded. The Enji dining room opens, blending traditional and contemporary Japanese aesthetics.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-title">International Presence</div>
+            <div class="timeline-desc">SUMI &amp; ENJI brings the Kyoto ethos to a global stage with the launch of our first international location.</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1400&auto=format&fit=crop" alt="Restaurant" style="width:100%; aspect-ratio:4/5; object-fit:cover;"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Team ── -->
+<section class="section section--container">
+  <div class="container">
+    <div class="section-header section-header--center mb-16 fade-up">
+      <span class="section-eyebrow">The Artisans</span>
+      <h2 class="headline-xl">Meet the Team</h2>
+      <div class="section-header__divider" style="margin:var(--sp-4) auto 0;"></div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <img src="https://images.unsplash.com/photo-1583394838336-318e90641973?q=80&w=600&auto=format&fit=crop" alt="Head Chef"/>
+        <h3 class="headline-sm">Hiroshi Tanaka</h3>
+        <p class="label-sm text-secondary mt-1" style="color:var(--secondary)">Executive Chef &amp; Founder</p>
+        <p class="body-sm text-muted mt-3">Trained under three Michelin-starred masters in Kyoto and Tokyo. Specialises in the art of knife work and seasonal kaiseki.</p>
+      </div>
+      <div class="team-card fade-up" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&auto=format&fit=crop" alt="Sous Chef"/>
+        <h3 class="headline-sm">Yuki Matsuda</h3>
+        <p class="label-sm text-secondary mt-1" style="color:var(--secondary)">Head Sushi Chef</p>
+        <p class="body-sm text-muted mt-3">15 years behind the counter at Tokyo's Tsukiji market before joining our founding team. Master of nigiri and sashimi presentation.</p>
+      </div>
+      <div class="team-card fade-up" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1539614474522-5af0e51e4b8c?q=80&w=600&auto=format&fit=crop" alt="Sake Director"/>
+        <h3 class="headline-sm">Keiko Nakamura</h3>
+        <p class="label-sm text-secondary mt-1" style="color:var(--secondary)">Sake &amp; Beverage Director</p>
+        <p class="body-sm text-muted mt-3">Certified Sake Sommelier and co-author of "Spirit of the Grain." Curates our 180-label sake programme with care and intention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Awards ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header mb-10 fade-up">
+      <span class="section-eyebrow">Recognition</span>
+      <h2 class="headline-xl">Awards &amp; Accolades</h2>
+      <div class="section-header__divider"></div>
+    </div>
+    <div class="awards-row fade-up">
+      <div class="award-badge"><span class="material-symbols-outlined">star</span><div><div class="label-sm text-muted">Michelin</div><div style="font-weight:700; font-size:.95rem;">★★ Two Stars</div></div></div>
+      <div class="award-badge"><span class="material-symbols-outlined" style="color:var(--secondary);">emoji_events</span><div><div class="label-sm text-muted">The World's 50 Best</div><div style="font-weight:700; font-size:.95rem;">#12 — Asia</div></div></div>
+      <div class="award-badge"><span class="material-symbols-outlined">verified</span><div><div class="label-sm text-muted">Gault &amp; Millau</div><div style="font-weight:700; font-size:.95rem;">17 / 20</div></div></div>
+      <div class="award-badge"><span class="material-symbols-outlined">thumb_up</span><div><div class="label-sm text-muted">TripAdvisor</div><div style="font-weight:700; font-size:.95rem;">Travellers' Choice 2024</div></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand">SUMI &amp; ENJI</div><p class="footer-desc">Elevating the essence of Japanese culinary tradition through modern interpretation and seasonal mastery.</p></div>
+      <div><div class="footer-heading">Explore</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="menu.html">Full Menu</a></li><li><a href="reservation.html">Reservations</a></li></ul></div>
+      <div><div class="footer-heading">Service</div><ul class="footer-links"><li><a href="order.html">Online Ordering</a></li><li><a href="#">Private Dining</a></li><li><a href="#">Gift Cards</a></li></ul></div>
+      <div><div class="footer-heading">Social</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li><li><a href="#">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-copy"><span>© 2024 SUMI &amp; ENJI. Traditional Craft, Modern Palate.</span><div class="footer-copy-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | SUMI & ENJI</title>
+  <meta name="description" content="Browse our full menu — Sushi, Ramen, Tempura, Wagyu, and more."/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .menu-cat-link {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: var(--sp-3) 0;
+      font-family: var(--font-body); font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      border-bottom: 1px solid transparent;
+      transition: color .2s;
+      cursor: pointer;
+    }
+    .menu-cat-link:hover, .menu-cat-link.active { color: var(--primary); }
+    .menu-cat-link.active { font-weight: 700; border-bottom-color: var(--secondary); }
+    .menu-cat-link .count { font-size: 0.7rem; color: var(--outline); }
+
+    .menu-search {
+      position: relative; margin-bottom: var(--sp-8);
+    }
+    .menu-search input {
+      width: 100%; padding: var(--sp-3) var(--sp-4) var(--sp-3) 2.5rem;
+      background: var(--surface-container-lowest);
+      border: 1px solid var(--outline-variant);
+      font-size: 0.875rem; color: var(--on-surface); outline: none;
+      transition: border-color .2s;
+    }
+    .menu-search input:focus { border-color: var(--primary); }
+    .menu-search__icon {
+      position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+      font-size: 1rem; color: var(--outline);
+    }
+    .dietary-cb { display: flex; align-items: center; gap: var(--sp-3); cursor: pointer; font-size: 0.85rem; color: var(--on-surface-variant); }
+    .dietary-cb input { accent-color: var(--primary); width: 14px; height: 14px; }
+    .sidebar-card { background: var(--surface-container-low); padding: var(--sp-6); position: relative; overflow: hidden; }
+    .sidebar-card .pattern { position: absolute; inset: 0; }
+    .time-slot {
+      padding: var(--sp-3); text-align: center; cursor: pointer;
+      background: var(--surface-container-low); font-family: var(--font-label);
+      font-size: 0.7rem; letter-spacing: .1em; text-transform: uppercase;
+      transition: background .2s, color .2s; border: none;
+    }
+    .time-slot.active { background: var(--primary); color: #fff; }
+    .time-slot:hover:not(.active) { background: var(--surface-container-high); }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="Language"><span class="material-symbols-outlined">language</span></button>
+      <a href="order.html" style="position:relative" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero page-main">
+  <img class="page-hero__bg" src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=2025&auto=format&fit=crop" alt="Menu hero"/>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <h1 class="page-hero__title">Our Menu <span class="jp-sub" style="font-size:0.6em">私たちのメニュー</span></h1>
+    <div class="menu-search" style="max-width:400px; margin:var(--sp-6) auto 0;">
+      <span class="material-symbols-outlined menu-search__icon">search</span>
+      <input type="text" id="menu-search" placeholder="Search for a dish…" aria-label="Search menu"/>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="container section">
+    <div class="sidebar-layout">
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar">
+        <h3 class="headline-sm mb-6">Categories</h3>
+        <ul>
+          <li><button class="menu-cat-link active cat-filter" data-cat="all">All Dishes <span class="count">71</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="sushi">Sushi &amp; Sashimi 寿司 <span class="count">12</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="ramen">Ramen &amp; Noodles ラーメン <span class="count">8</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="appetiser">Appetisers 前菜 <span class="count">15</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="mains">Main Dishes メイン <span class="count">10</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="dessert">Desserts デザート <span class="count">6</span></button></li>
+          <li><button class="menu-cat-link cat-filter" data-cat="drinks">Drinks 飲み物 <span class="count">20</span></button></li>
+        </ul>
+
+        <h3 class="headline-sm mt-12 mb-6">Dietary</h3>
+        <div style="display:flex; flex-direction:column; gap:var(--sp-4);">
+          <label class="dietary-cb"><input type="checkbox" class="dietary-filter" value="vegan"/> 🌿 Vegan</label>
+          <label class="dietary-cb"><input type="checkbox" class="dietary-filter" value="spicy"/> 🌶 Spicy</label>
+          <label class="dietary-cb"><input type="checkbox" class="dietary-filter" value="gf"/> 🌾 Gluten-Free</label>
+        </div>
+
+        <div class="sidebar-card mt-12">
+          <div class="pattern dot-pattern"></div>
+          <div style="position:relative">
+            <p class="headline-sm mb-2">Artisan Experience</p>
+            <p class="body-sm text-muted mb-4">Our chefs select the freshest seasonal ingredients every dawn from the Toyosu Market.</p>
+            <a href="about.html" class="link-gold">Learn More</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── Dish Grid ── -->
+      <div>
+        <div class="grid-3" id="menu-grid" style="gap:var(--sp-6);">
+
+          <!-- Each card wrapped for filter targeting -->
+          <div class="dish-card-wrap" data-cat="sushi" data-dietary='["gf"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Omakase Nigiri"/>
+                <span class="dish-card__badge">Popular</span>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">Omakase Nigiri</div><div class="dish-card__name-jp">お任せ握り</div></div>
+                  <span class="dish-card__price">$42</span>
+                </div>
+                <p class="dish-card__desc">A curated selection of 8 pieces of chef-selected seasonal premium nigiri with fresh wasabi.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌾 GF</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="nigiri" data-name="Omakase Nigiri" data-name-jp="お任せ握り" data-price="42">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card-wrap" data-cat="ramen" data-dietary='["spicy"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=600&auto=format&fit=crop" alt="Black Garlic Ramen"/>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">Black Garlic Ramen</div><div class="dish-card__name-jp">黒にんにくラーメン</div></div>
+                  <span class="dish-card__price">$18</span>
+                </div>
+                <p class="dish-card__desc">Rich 24-hour tonkotsu broth infused with burnt garlic oil and smoked pork belly.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌶 Spicy</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="ramen" data-name="Black Garlic Ramen" data-price="18">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card-wrap" data-cat="appetiser" data-dietary='["vegan","gf"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1581184953963-d15972933db1?q=80&w=600&auto=format&fit=crop" alt="Yasai Tempura"/>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">Yasai Tempura</div><div class="dish-card__name-jp">野菜天ぷら</div></div>
+                  <span class="dish-card__price">$14</span>
+                </div>
+                <p class="dish-card__desc">Delicate, lace-fried seasonal vegetables served with a light soy-dashi dipping sauce.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌿 Vegan</span><span class="dietary-badge">🌾 GF</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="tempura" data-name="Yasai Tempura" data-price="14">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card-wrap" data-cat="mains" data-dietary='["gf"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?q=80&w=600&auto=format&fit=crop" alt="Glazed Salmon"/>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">Glazed Salmon</div><div class="dish-card__name-jp">サーモン照り焼き</div></div>
+                  <span class="dish-card__price">$26</span>
+                </div>
+                <p class="dish-card__desc">Pan-seared Atlantic salmon with a house-made sake-teriyaki reduction and seasonal greens.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌾 GF</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="salmon" data-name="Glazed Salmon" data-price="26">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card-wrap" data-cat="mains" data-dietary='["gf"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop" alt="A5 Wagyu Tataki"/>
+                <span class="dish-card__badge">Chef's Choice</span>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">A5 Wagyu Tataki</div><div class="dish-card__name-jp">A5和牛たたき</div></div>
+                  <span class="dish-card__price">$65</span>
+                </div>
+                <p class="dish-card__desc">Lightly seared A5 Miyazaki Wagyu thinly sliced, served with ponzu and crispy garlic.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌾 GF</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="wagyu" data-name="A5 Wagyu Tataki" data-price="65">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card-wrap" data-cat="dessert" data-dietary='["vegan","gf"]'>
+            <div class="card dish-card fade-up">
+              <div class="dish-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=600&auto=format&fit=crop" alt="Uji Matcha Gelato"/>
+              </div>
+              <div class="dish-card__body">
+                <div class="dish-card__meta">
+                  <div><div class="dish-card__name">Uji Matcha Gelato</div><div class="dish-card__name-jp">宇治抹茶アイス</div></div>
+                  <span class="dish-card__price">$9</span>
+                </div>
+                <p class="dish-card__desc">Premium ceremonial grade matcha from Uji, Kyoto, churned into a velvety smooth gelato.</p>
+                <div class="dietary-icons"><span class="dietary-badge">🌿 Vegan</span><span class="dietary-badge">🌾 GF</span></div>
+                <button class="btn btn-outline-red w-full mt-4" style="justify-content:center"
+                  data-add-to-cart data-id="matcha" data-name="Uji Matcha Gelato" data-price="9">
+                  + Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /grid -->
+
+        <div class="text-center mt-16">
+          <button class="btn btn-outline">Discover More Dishes</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand">SUMI &amp; ENJI</div><p class="footer-desc">Experience the soul of Tokyo through our meticulously crafted culinary journey.</p></div>
+      <div><div class="footer-heading">Explore</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="menu.html">Full Menu</a></li></ul></div>
+      <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="contact.html">123 Ginza District, Tokyo</a></li><li><a href="tel:+81312345678">+81 3-1234-5678</a></li></ul></div>
+      <div><div class="footer-heading">Social</div><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li></ul></div>
+    </div>
+    <div class="footer-copy"><span>© 2024 SUMI &amp; ENJI. Traditional Craft, Modern Palate.</span><div class="footer-copy-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Client-side search
+  const searchInput = document.getElementById('menu-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase();
+      document.querySelectorAll('.dish-card-wrap').forEach(wrap => {
+        const text = wrap.textContent.toLowerCase();
+        wrap.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  }
+</script>
+</body>
+</html>

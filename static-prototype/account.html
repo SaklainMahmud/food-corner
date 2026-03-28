@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Account | SUMI & ENJI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .acc-layout { display:flex; min-height:100vh; }
+    .acc-sidebar { width:240px; min-height:100vh; background:var(--surface-container-low); position:fixed; top:0; left:0; display:flex; flex-direction:column; padding:var(--sp-8) 0; border-right:1px solid var(--outline-variant); z-index:50; }
+    .acc-brand { font-family:var(--font-display); font-style:italic; font-size:1.25rem; padding:0 var(--sp-6) var(--sp-6); border-bottom:1px solid var(--outline-variant); margin-bottom:var(--sp-4); }
+    .acc-user { display:flex; align-items:center; gap:var(--sp-3); padding:var(--sp-4) var(--sp-6); margin-bottom:var(--sp-4); }
+    .acc-avatar { width:40px; height:40px; background:var(--primary-fixed); display:flex; align-items:center; justify-content:center; font-family:var(--font-label); font-size:.8rem; font-weight:700; color:var(--primary); }
+    .acc-nav-item { display:flex; align-items:center; gap:var(--sp-3); padding:var(--sp-3) var(--sp-6); font-family:var(--font-label); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--on-surface-variant); cursor:pointer; transition:all .2s; }
+    .acc-nav-item:hover { background:var(--surface-container); color:var(--on-surface); }
+    .acc-nav-item.active { background:var(--primary-fixed); color:var(--primary); font-weight:700; border-right:3px solid var(--primary); }
+    .acc-main { margin-left:240px; padding:var(--sp-12); flex:1; max-width:1100px; padding-top:calc(var(--nav-h) + var(--sp-12)); }
+    .res-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-6); }
+    .res-card { background:var(--surface-container-low); padding:var(--sp-6); position:relative; }
+    .reward-item { display:flex; justify-content:space-between; align-items:center; padding:var(--sp-4) 0; border-bottom:1px solid var(--surface-container-high); }
+    @media(max-width:768px){ .acc-sidebar{display:none;} .acc-main{margin-left:0;} .res-cards{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" class="glass">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SUMI &amp; ENJI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="order.html" style="position:relative"><span class="material-symbols-outlined">shopping_cart</span><span class="cart-badge" style="display:none">0</span></a>
+      <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="acc-layout">
+  <!-- Sidebar -->
+  <aside class="acc-sidebar">
+    <div class="acc-brand">SUMI &amp; ENJI</div>
+    <div class="acc-user">
+      <div class="acc-avatar">KY</div>
+      <div><div style="font-weight:700; font-size:.9rem;">Kenji Yamamoto</div><div class="label-sm text-secondary" style="color:var(--secondary);">Gold Member</div></div>
+    </div>
+    <div class="acc-nav-item active"><span class="material-symbols-outlined" style="font-size:1rem;">dashboard</span>Overview</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">receipt_long</span>Order History</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">event_seat</span>Reservations</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">favorite</span>Saved Items</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">location_on</span>Addresses</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">credit_card</span>Payment Methods</div>
+    <div class="acc-nav-item"><span class="material-symbols-outlined" style="font-size:1rem;">stars</span>Loyalty Points</div>
+    <div style="margin-top:auto; padding:var(--sp-6);">
+      <a href="login.html" class="acc-nav-item" style="color:var(--error);"><span class="material-symbols-outlined" style="font-size:1rem;">logout</span>Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="acc-main">
+    <!-- Metric Cards -->
+    <div class="grid-4 mb-12">
+      <div class="metric-card fade-up"><div class="metric-eyebrow">Total Orders</div><div class="metric-value">24</div><div class="metric-trend metric-trend--up">↑ 3 this month</div></div>
+      <div class="metric-card fade-up" data-delay="1"><div class="metric-eyebrow">Reservations</div><div class="metric-value">2</div><div class="metric-trend metric-trend--neutral">Upcoming</div></div>
+      <div class="metric-card fade-up" data-delay="2"><div class="metric-eyebrow">Loyalty Points</div><div class="metric-value" style="color:var(--secondary);">1,840</div><div class="metric-trend metric-trend--up">↑ 220 pts</div></div>
+      <div class="metric-card fade-up" data-delay="3"><div class="metric-eyebrow">Saved Items</div><div class="metric-value">8</div><div class="metric-trend metric-trend--neutral">Favourites</div></div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div style="background:var(--surface-container-lowest); padding:var(--sp-8); margin-bottom:var(--sp-8);" class="fade-up">
+      <div class="flex-between mb-6"><h2 class="headline-sm">Recent Orders</h2><a href="#" class="link-gold">View All</a></div>
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr><th>Order ID</th><th>Date</th><th>Items</th><th>Status</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td><strong>#SE-8821</strong></td><td class="text-muted" style="font-size:.8rem;">Mar 22, 2024</td><td>Omakase Nigiri × 1</td><td><span class="chip chip--green">Delivered</span></td><td><strong>$85</strong></td></tr>
+            <tr><td><strong>#SE-8820</strong></td><td class="text-muted" style="font-size:.8rem;">Mar 19, 2024</td><td>Black Garlic Ramen, Tempura</td><td><span class="chip chip--amber">In Progress</span></td><td><strong>$56</strong></td></tr>
+            <tr><td><strong>#SE-8819</strong></td><td class="text-muted" style="font-size:.8rem;">Mar 14, 2024</td><td>Enji Dragon Roll × 2</td><td><span class="chip chip--green">Delivered</span></td><td><strong>$28</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Upcoming Reservations -->
+    <div style="margin-bottom:var(--sp-8);" class="fade-up">
+      <h2 class="headline-sm mb-6">Upcoming Reservations</h2>
+      <div class="res-cards">
+        <div class="res-card">
+          <div class="flex-between mb-4"><span class="label-sm text-muted">Main Hall</span><span class="chip chip--green">Confirmed</span></div>
+          <div class="headline-sm mb-2">Saturday, Apr 5, 2024</div>
+          <div class="flex gap-4" style="flex-wrap:wrap; margin-bottom:var(--sp-4);">
+            <div class="flex gap-2 text-muted body-sm"><span class="material-symbols-outlined" style="font-size:.9rem;">schedule</span>7:00 PM</div>
+            <div class="flex gap-2 text-muted body-sm"><span class="material-symbols-outlined" style="font-size:.9rem;">group</span>2 Guests</div>
+          </div>
+          <div class="flex gap-4"><a href="reservation.html" class="link-gold">Modify</a><a href="#" class="link-gold" style="color:var(--error); border-color:var(--error);">Cancel</a></div>
+        </div>
+        <div class="res-card">
+          <div class="flex-between mb-4"><span class="label-sm text-muted">Private Tea Room</span><span class="chip chip--green">Confirmed</span></div>
+          <div class="headline-sm mb-2">Friday, Apr 18, 2024</div>
+          <div class="flex gap-4" style="flex-wrap:wrap; margin-bottom:var(--sp-4);">
+            <div class="flex gap-2 text-muted body-sm"><span class="material-symbols-outlined" style="font-size:.9rem;">schedule</span>8:30 PM</div>
+            <div class="flex gap-2 text-muted body-sm"><span class="material-symbols-outlined" style="font-size:.9rem;">group</span>6 Guests</div>
+          </div>
+          <div class="flex gap-4"><a href="reservation.html" class="link-gold">Modify</a><a href="#" class="link-gold" style="color:var(--error); border-color:var(--error);">Cancel</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loyalty Program -->
+    <div style="background:var(--surface-container-lowest); padding:var(--sp-8);" class="fade-up">
+      <div class="flex-between mb-2"><h2 class="headline-sm">Loyalty Programme</h2><span class="label-sm text-muted">Gold Tier</span></div>
+      <p class="body-sm text-muted mb-4">1,840 / 2,500 points to Platinum tier</p>
+      <div class="loyalty-bar mb-4"><div class="loyalty-bar__fill" style="width:73%;"></div></div>
+      <div class="headline-sm mb-6">Available Rewards</div>
+      <div class="reward-item"><div><div style="font-weight:600;">Free Miso Soup</div><div class="label-sm text-muted mt-1">200 pts</div></div><button class="btn btn-outline-red" style="padding:.5rem 1.25rem; font-size:.65rem;">Redeem</button></div>
+      <div class="reward-item"><div><div style="font-weight:600;">10% off your next order</div><div class="label-sm text-muted mt-1">500 pts</div></div><button class="btn btn-outline-red" style="padding:.5rem 1.25rem; font-size:.65rem;">Redeem</button></div>
+      <div class="reward-item"><div><div style="font-weight:600;">Free Uji Matcha Gelato</div><div class="label-sm text-muted mt-1">350 pts</div></div><button class="btn btn-outline-red" style="padding:.5rem 1.25rem; font-size:.65rem;">Redeem</button></div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
